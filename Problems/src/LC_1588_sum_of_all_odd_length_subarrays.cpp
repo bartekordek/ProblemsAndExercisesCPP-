@@ -13,8 +13,6 @@
 #include "CUL/STL_IMPORTS/STD_functional.hpp"
 #include "CUL/STL_IMPORTS/STD_numeric.hpp"
 
-template <typename Type>
-using vector = std::vector<Type>;
 
 template <typename Type>
 using map = std::map<Type,Type>;
@@ -84,7 +82,7 @@ public:
         }
         return sum;
     }
-    
+
     int sumOddLengthSubarrays2( vector<int>& arr )
     {
         auto sum = 0;

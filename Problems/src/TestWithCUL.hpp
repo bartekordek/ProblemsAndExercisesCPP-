@@ -2,6 +2,10 @@
 
 #include "Gtest.hpp"
 #include "CUL/CULInterface.hpp"
+#include "CUL/STL_IMPORTS/STD_vector.hpp"
+
+template <typename Type>
+using vector = std::vector<Type>;
 
 class TestWithCUL:
     public ::testing::Test

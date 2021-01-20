@@ -9,10 +9,11 @@
                 "limitSymbolsToIncludedHeaders": true
             },
             "includePath": [
-                "${workspaceFolder}/Tests/src",
+                "${workspaceFolder}/Problems/src",
                 "${workspaceFolder}/deps/CUL/libculTests",
                 "${workspaceFolder}/deps/CUL/libcul/inc",
-                "${workspaceFolder}/deps/CUL/libcul/src"
+                "${workspaceFolder}/deps/CUL/libcul/src",
+                "${workspaceFolder}/deps/CUL/deps/googletest/googletest/include"
             ],
             "defines": [
                 "_DEBUG",
