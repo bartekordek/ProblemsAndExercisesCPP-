@@ -1,0 +1,8 @@
+*.exe
+*.suo
+.vs
+Build-Windows
+
+runDir/*.dll
+runDir/*.pdb
+build

@@ -1,0 +1,6 @@
+[submodule "deps/CUL"]
+	path = deps/CUL
+	url = git@github.com:bartekordek/CUL.git
+[submodule "deps/helpers"]
+	path = deps/helpers
+	url = git@github.com:bartekordek/helpers.git
