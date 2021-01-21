@@ -8,28 +8,34 @@ public:
         auto result = 0;
         const int indicesSize = static_cast<int>( indices.size() );
 
-        auto howManyTimesInIndices = [&indices] (int rowVal, int colVal ) {
-            auto result = 0;
-            for( const auto& index: indices )
-            {
-                if( index[0] == rowVal )
-                {
-                    ++result;
-                }
+        std::unordered_map<int, int> xTimes;
+        std::unordered_map<int, int> yTimes;
 
-                if( index[1] == colVal )
-                {
-                    ++result;
-                }
-            }
-            return result;
-        };
+        for( int i = 0; i < indicesSize; ++i )
+        {
+            ++xTimes[ indices[i][0] ];
+            ++yTimes[ indices[ i ][ 1 ] ];
+        }
 
         for( int row = 0; row < n; ++row )
         {
             for( int col = 0; col < m; ++col )
             {
-                if( howManyTimesInIndices( row, col ) %2 != 0 )
+                auto rowCount = 0;
+                auto itR = xTimes.find( row );
+                if( itR != xTimes.end() )
+                {
+                    rowCount = itR->second;
+                }
+
+                auto colCount = 0;
+                auto itC = yTimes.find( col );
+                if( itC != yTimes.end() )
+                {
+                    colCount = itC->second;
+                }
+
+                if( (rowCount + colCount) %2 != 0 )
                 {
                     ++result;
                 }
