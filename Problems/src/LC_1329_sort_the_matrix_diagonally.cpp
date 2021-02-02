@@ -109,7 +109,10 @@ TEST_F( LC_1329_sort_the_matrix_diagonally, Test00 )
         {2,2,1,2},
         {1,1,1,2} };
     auto res = solution.diagonalSort( input );
-    GTEST_ASSERT_EQ( 6, res[0][0] );
+    GTEST_ASSERT_EQ( 1, res[ 0 ][ 0 ] );
+    GTEST_ASSERT_EQ( 1, res[ 0 ][ 1 ] );
+    GTEST_ASSERT_EQ( 1, res[ 0 ][ 2 ] );
+    GTEST_ASSERT_EQ( 1, res[ 0 ][ 3 ] );
 }
 
 
