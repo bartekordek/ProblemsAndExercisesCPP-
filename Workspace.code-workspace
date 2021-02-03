@@ -92,7 +92,8 @@
 			"shared_mutex": "cpp",
 			"bit": "cpp",
 			"concepts": "cpp",
-			"compare": "cpp"
+			"compare": "cpp",
+			"*.tmpl": "cpp"
 		},
 		"git.ignoreLimitWarning": true,
 		"files.autoSave": "afterDelay"
