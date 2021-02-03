@@ -9,9 +9,12 @@ public:
         vector<int> result;
         for( int i = left; i <= right; ++i )
         {
-            if( numberIsSeldDividing( i ) )
+            if( i % 10 != 0 )
             {
-                result.push_back( i );
+                if( numberIsSeldDividing( i ) )
+                {
+                    result.push_back( i );
+                }
             }
         }
         return result;
@@ -19,11 +22,16 @@ public:
 private:
     bool numberIsSeldDividing( int number )
     {
-        auto digits = extractDigits( number );
+        extractDigits( number );
 
-        for( const auto digit : digits )
+        for( const auto digit : m_digits )
         {
-            if( digit == 0 || number % digit != 0 )
+            if( digit == 0 )
+            {
+                return false;
+            }
+
+            if( number % digit != 0 )
             {
                 return false;
             }
@@ -32,19 +40,19 @@ private:
         return true;
     }
 
-    std::vector<int> extractDigits( int number )
+    void extractDigits( int number )
     {
-        std::vector<int> digits;
+        m_digits.clear();
         int a = 0;
-
         while( number > 0 )
         {
             a = number % 10;
-            digits.push_back( a );
+            m_digits.push_back( a );
             number /= 10;
         }
-        return digits;
     }
+
+    std::vector<int> m_digits;
 };
 
 LC_728_self_dividing_numbers::LC_728_self_dividing_numbers()
@@ -69,14 +77,21 @@ void LC_728_self_dividing_numbers::TearDownTestCase()
     TestWithCUL::TearDownTestCase();
 }
 
-TEST_F( LC_728_self_dividing_numbers, Test01 )
+TEST_F( LC_728_self_dividing_numbers, Test00 )
 {
     Solution solution;
     auto result = solution.selfDividingNumbers( 1, 22 );
-    for( int i = 1; i < 10; ++i )
+    for( int i = 0; i < 9; ++i )
     {
-        GTEST_ASSERT_EQ( i, result[ i ] );
+        std::cout << "i + 1 = " << i + 1 << ", val = " << result[ i ] << "\n";
+        GTEST_ASSERT_EQ( i + 1, result[ i ] );
     }
+}
+
+TEST_F( LC_728_self_dividing_numbers, Test01 )
+{
+    Solution solution;
+    solution.selfDividingNumbers( 66, 708 );
 }
 
 LC_728_self_dividing_numbers::~LC_728_self_dividing_numbers()
